@@ -6,9 +6,31 @@ optional Windows sound effects.
 
 **Current Version:** 1.0.0
 
-## Screenshot
+## Screenshots
+
+### Main Menu
 
 ![Menu](assets/images/menu.png)
+
+### Difficulty Selection
+
+![Difficulty Selection](assets/images/difficulty.png)
+
+### Winning Screen
+
+![Winning Screen](assets/images/win.png)
+
+### Losing Screen
+
+![Losing Screen](assets/images/lose.png)
+
+### Leaderboard
+
+![Leaderboard](assets/images/leaderboard.png)
+
+### Statistics
+
+![Statistics](assets/images/statistics.png)
 
 ## Features
 
