@@ -1,18 +1,1 @@
-[
-  {
-    "score": 70,
-    "player_name": "gautam sharma",
-    "guesses": 4,
-    "difficulty": "Easy",
-    "secret_number": 5,
-    "played_at": "2026-06-26T00:27:16"
-  },
-  {
-    "score": 60,
-    "player_name": "gautam sharma",
-    "guesses": 5,
-    "difficulty": "Easy",
-    "secret_number": 9,
-    "played_at": "2026-06-26T00:27:01"
-  }
-]
+[]
