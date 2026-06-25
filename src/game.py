@@ -89,17 +89,17 @@ class NumberGuessingGame:
         small_delay()
 
     def play_round(self, difficulty):
+        player_name = ask_choice("Enter Player Name: ") or "Player"
         while True:
-            self._play_single_game(difficulty)
+            self._play_single_game(difficulty, player_name)
             print("\nPlay Again?")
             print("1. Yes")
             print("2. No")
             if ask_choice("Select: ") != "1":
                 break
 
-    def _play_single_game(self, difficulty):
+    def _play_single_game(self, difficulty, player_name):
         secret_number = random.randint(difficulty.minimum, difficulty.maximum)
-        player_name = ask_choice("Enter Player Name: ") or "Player"
         player = Player(player_name)
         lives_left = difficulty.lives
         wrong_guesses = 0

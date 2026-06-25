@@ -3,12 +3,12 @@
 ## Gameplay
 
 - Welcome screen with difficulty selection
-- Player name input before each game
+- Player name input once before a play session
 - Easy, Medium, and Hard modes
 - Random number generation for each round
 - Limited lives based on difficulty
 - Guess counter and previous guess history
-- Play again option after each round
+- Play again option without asking for the player name again
 - Leaderboard for top winning scores
 - Reset option for saved scores and statistics
 

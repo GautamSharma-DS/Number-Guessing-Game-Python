@@ -1,19 +1,7 @@
-# Number Guessing Game
+# Advanced Number Guessing Game
 
-A portfolio-ready Python terminal game with difficulty levels, lives, hints,
-score tracking, best score, saved statistics, and optional Windows sound effects.
-
-## Run
-
-```bash
-python -m src.main
-```
-
-or
-
-```bash
-python src/main.py
-```
+A Python terminal game with difficulty levels, limited lives, smart hints,
+scoring, leaderboard, persistent statistics, and unit tests.
 
 ## Features
 
@@ -32,6 +20,18 @@ python src/main.py
 - Best score saved in JSON
 - Game statistics saved in JSON
 - Optional Windows terminal sound effects
+
+## Run
+
+```bash
+python -m src.main
+```
+
+or
+
+```bash
+python src/main.py
+```
 
 ## Difficulty
 
@@ -70,14 +70,46 @@ If the correct number is `75`:
 ## Sample Game Status
 
 ```text
-============================================
-Lives Left : ♥♥♥♡♡
-Guess No.  : 3
-Score      : 80
-Timer      : 12.4s
-Previous   : 40, 95
-============================================
+==================================================
+Lives Left     : ♥♥♥♡♡
+Guess No.      : 3
+Score          : 80
+Timer          : 12.4s
+Previous       : 40, 95
+==================================================
 ```
+
+## Project Structure
+
+```text
+src/
+  main.py
+  game.py
+  config.py
+  player.py
+  score_manager.py
+  sound_manager.py
+  ui.py
+  utils.py
+data/
+  scores.json
+  stats.json
+tests/
+  test_game.py
+  test_score.py
+docs/
+  features.md
+```
+
+## Concepts Used
+
+- Python modules and packages
+- Classes and dataclasses
+- JSON file handling
+- Random number generation
+- Input validation
+- Unit testing with `unittest`
+- Clean project structure
 
 ## Data Files
 

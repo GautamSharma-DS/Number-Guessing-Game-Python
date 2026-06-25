@@ -32,7 +32,7 @@ class TestGameHelpers(unittest.TestCase):
         self.assertEqual(get_hint(75, 80), "Too High")
 
     def test_life_display(self):
-        self.assertEqual(render_lives(3, 5), "♥♥♥♡♡")
+        self.assertEqual(render_lives(3, 5), "\u2665\u2665\u2665\u2661\u2661")
 
 
 if __name__ == "__main__":

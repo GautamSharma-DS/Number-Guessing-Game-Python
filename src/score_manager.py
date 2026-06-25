@@ -46,7 +46,15 @@ class ScoreManager:
         for key, value in DEFAULT_STATS.items():
             self.stats.setdefault(key, value)
 
-    def record_game(self, won, score, guesses, difficulty, secret_number, player_name="Player"):
+    def record_game(
+        self,
+        won,
+        score,
+        guesses,
+        difficulty,
+        secret_number,
+        player_name="Player",
+    ):
         self.stats["games_played"] += 1
         self.stats["total_guesses"] += guesses
 

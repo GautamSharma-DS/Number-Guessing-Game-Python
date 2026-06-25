@@ -20,6 +20,6 @@ def get_hint(secret_number, guess):
 
 
 def render_lives(lives_left, total_lives):
-    filled = "♥" * lives_left
-    empty = "♡" * (total_lives - lives_left)
+    filled = "\u2665" * lives_left
+    empty = "\u2661" * (total_lives - lives_left)
     return filled + empty
