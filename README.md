@@ -67,6 +67,10 @@ If the correct number is `75`:
 7. Exit
 ```
 
+## Screenshot
+
+![Menu](assets/images/menu.png)
+
 ## Sample Game Status
 
 ```text
