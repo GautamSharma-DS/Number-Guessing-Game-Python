@@ -1,74 +1,61 @@
-import tempfile
-import unittest
-from pathlib import Path
-
 from src.score_manager import ScoreManager
 
 
-class TestScoreManager(unittest.TestCase):
-    def test_score_manager_records_win(self):
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_path = Path(temp_dir)
-            manager = ScoreManager(temp_path / "scores.json", temp_path / "stats.json")
+def test_score_manager_records_win(tmp_path):
+    manager = ScoreManager(tmp_path / "scores.json", tmp_path / "stats.json")
 
-            manager.record_game(
-                won=True,
-                score=80,
-                guesses=3,
-                difficulty="Hard",
-                secret_number=73,
-                player_name="Gautam",
-            )
+    manager.record_game(
+        won=True,
+        score=80,
+        guesses=3,
+        difficulty="Hard",
+        secret_number=73,
+        player_name="Gautam",
+    )
 
-            stats = manager.get_statistics()
-            self.assertEqual(stats["games_played"], 1)
-            self.assertEqual(stats["games_won"], 1)
-            self.assertEqual(stats["games_lost"], 0)
-            self.assertEqual(stats["best_score"], 80)
-            self.assertEqual(stats["average_guesses"], 3)
-            self.assertEqual(manager.scores[0]["score"], 80)
-            self.assertEqual(manager.scores[0]["player_name"], "Gautam")
-            self.assertEqual(manager.get_leaderboard()[0]["score"], 80)
-
-    def test_score_manager_records_loss(self):
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_path = Path(temp_dir)
-            manager = ScoreManager(temp_path / "scores.json", temp_path / "stats.json")
-
-            manager.record_game(
-                won=False,
-                score=0,
-                guesses=5,
-                difficulty="Hard",
-                secret_number=73,
-            )
-
-            stats = manager.get_statistics()
-            self.assertEqual(stats["games_played"], 1)
-            self.assertEqual(stats["games_won"], 0)
-            self.assertEqual(stats["games_lost"], 1)
-            self.assertEqual(stats["best_score"], 0)
-
-    def test_score_manager_can_reset_data(self):
-        with tempfile.TemporaryDirectory() as temp_dir:
-            temp_path = Path(temp_dir)
-            manager = ScoreManager(temp_path / "scores.json", temp_path / "stats.json")
-
-            manager.record_game(
-                won=True,
-                score=90,
-                guesses=2,
-                difficulty="Easy",
-                secret_number=12,
-                player_name="Gautam",
-            )
-            manager.reset()
-
-            stats = manager.get_statistics()
-            self.assertEqual(stats["games_played"], 0)
-            self.assertEqual(stats["best_score"], 0)
-            self.assertEqual(manager.get_leaderboard(), [])
+    stats = manager.get_statistics()
+    assert stats["games_played"] == 1
+    assert stats["games_won"] == 1
+    assert stats["games_lost"] == 0
+    assert stats["best_score"] == 80
+    assert stats["average_guesses"] == 3
+    assert manager.scores[0]["score"] == 80
+    assert manager.scores[0]["player_name"] == "Gautam"
+    assert manager.get_leaderboard()[0]["score"] == 80
 
 
-if __name__ == "__main__":
-    unittest.main()
+def test_score_manager_records_loss(tmp_path):
+    manager = ScoreManager(tmp_path / "scores.json", tmp_path / "stats.json")
+
+    manager.record_game(
+        won=False,
+        score=0,
+        guesses=5,
+        difficulty="Hard",
+        secret_number=73,
+    )
+
+    stats = manager.get_statistics()
+    assert stats["games_played"] == 1
+    assert stats["games_won"] == 0
+    assert stats["games_lost"] == 1
+    assert stats["best_score"] == 0
+
+
+def test_score_manager_can_reset_data(tmp_path):
+    manager = ScoreManager(tmp_path / "scores.json", tmp_path / "stats.json")
+
+    manager.record_game(
+        won=True,
+        score=90,
+        guesses=2,
+        difficulty="Easy",
+        secret_number=12,
+        player_name="Gautam",
+    )
+    manager.reset()
+
+    stats = manager.get_statistics()
+    assert stats["games_played"] == 0
+    assert stats["best_score"] == 0
+    assert manager.get_leaderboard() == []

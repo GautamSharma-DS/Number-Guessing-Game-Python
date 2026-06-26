@@ -17,6 +17,9 @@ try:
         show_leaderboard,
         show_lose_screen,
         show_menu,
+        show_best_score,
+        show_message,
+        show_play_again_options,
         show_statistics,
         show_win_screen,
         small_delay,
@@ -39,6 +42,9 @@ except ImportError:
         show_leaderboard,
         show_lose_screen,
         show_menu,
+        show_best_score,
+        show_message,
+        show_play_again_options,
         show_statistics,
         show_win_screen,
         small_delay,
@@ -56,7 +62,7 @@ class NumberGuessingGame:
         while True:
             clear_screen()
             welcome_screen()
-            print(f"Best Score : {self.score_manager.get_best_score()}")
+            show_best_score(self.score_manager.get_best_score())
             show_menu()
             choice = ask_choice("\nSelect Difficulty: ")
 
@@ -73,28 +79,26 @@ class NumberGuessingGame:
             elif choice == "6":
                 self.reset_scores()
             elif choice == "7":
-                print("\nThanks for playing!")
+                show_message("\nThanks for playing!", "bold green")
                 break
             else:
-                print("\nInvalid choice. Please select 1 to 7.")
+                show_message("\nInvalid choice. Please select 1 to 7.", "bold red")
                 small_delay()
 
     def reset_scores(self):
         confirm = ask_choice("Reset all scores and statistics? (y/n): ").lower()
         if confirm == "y":
             self.score_manager.reset()
-            print("Scores and statistics reset.")
+            show_message("Scores and statistics reset.", "bold green")
         else:
-            print("Reset cancelled.")
+            show_message("Reset cancelled.", "yellow")
         small_delay()
 
     def play_round(self, difficulty):
         player_name = ask_choice("Enter Player Name: ") or "Player"
         while True:
             self._play_single_game(difficulty, player_name)
-            print("\nPlay Again?")
-            print("1. Yes")
-            print("2. No")
+            show_play_again_options()
             if ask_choice("Select: ") != "1":
                 break
 
@@ -126,13 +130,14 @@ class NumberGuessingGame:
             )
 
             if guess is None:
-                print("Please enter a valid number.")
+                show_message("Please enter a valid number.", "bold red")
                 self.sound_manager.error()
                 continue
 
             if guess < difficulty.minimum or guess > difficulty.maximum:
-                print(
-                    f"Guess must be between {difficulty.minimum} and {difficulty.maximum}."
+                show_message(
+                    f"Guess must be between {difficulty.minimum} and {difficulty.maximum}.",
+                    "bold red",
                 )
                 self.sound_manager.error()
                 continue

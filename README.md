@@ -10,27 +10,27 @@ optional Windows sound effects.
 
 ### Main Menu
 
-![Menu](assets/images/menu.png)
+<img src="assets/images/menu.png" width="900" alt="Main Menu">
 
 ### Difficulty Selection
 
-![Difficulty Selection](assets/images/difficulty.png)
+<img src="assets/images/difficulty.png" width="900" alt="Difficulty Selection">
 
 ### Winning Screen
 
-![Winning Screen](assets/images/win.png)
+<img src="assets/images/win.png" width="900" alt="Winning Screen">
 
 ### Losing Screen
 
-![Losing Screen](assets/images/lose.png)
+<img src="assets/images/lose.png" width="900" alt="Losing Screen">
 
 ### Leaderboard
 
-![Leaderboard](assets/images/leaderboard.png)
+<img src="assets/images/leaderboard.png" width="900" alt="Leaderboard">
 
 ### Statistics
 
-![Statistics](assets/images/statistics.png)
+<img src="assets/images/statistics.png" width="900" alt="Statistics">
 
 ## Features
 
@@ -49,6 +49,7 @@ optional Windows sound effects.
 - Best score saved in JSON
 - Game statistics saved in JSON
 - JSON persistence
+- Rich-powered terminal UI
 - Optional Windows terminal sound effects
 
 ## Installation
@@ -152,7 +153,7 @@ Previous   : 40, 95
 ## Tests
 
 ```bash
-python -m unittest discover tests
+pytest
 ```
 
 ## License

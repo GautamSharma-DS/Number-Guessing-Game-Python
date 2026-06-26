@@ -39,7 +39,7 @@ All notable changes to the Advanced Number Guessing Game are documented in this 
   - `data/stats.json`
 - Added reset scores/statistics option.
 - Added optional Windows terminal sound effects with `winsound`.
-- Added unit tests for game helper functions and score management.
+- Added pytest-based tests for game helper functions and score management.
 - Added project documentation:
   - `README.md`
   - `docs/features.md`
@@ -50,6 +50,7 @@ All notable changes to the Advanced Number Guessing Game are documented in this 
 - Improved terminal menu formatting.
 - Improved game status layout.
 - Improved leaderboard and statistics display.
+- Added Rich-powered terminal panels, tables, and styled messages.
 - Cleaned saved data files for a portfolio-ready repository.
 - Updated `.gitignore` for virtual environment, Python cache, VS Code, and environment files.
 - Added README screenshot support using `assets/images/menu.png`.

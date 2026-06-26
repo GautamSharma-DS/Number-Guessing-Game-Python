@@ -45,7 +45,7 @@ python src/main.py
 ## Run Tests
 
 ```bash
-python -m unittest discover tests
+pytest
 ```
 
 ## Code Style
